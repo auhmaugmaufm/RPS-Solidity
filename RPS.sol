@@ -79,9 +79,13 @@ contract RPS {
     function checkTimeOut() public {
         if(timeUnit.elapsedMinutes() == timeOut) {
             if(players.length == 1) {
-                // 
-            }
-            for (uint256 i = 0; i < 2; i++) {
+                address payable account = payable(players[0]);
+                account.transfer(reward);
+                numInput = 0;
+                numPlayer = 0;
+                reward = 0;
+            } else {
+                for (uint256 i = 0; i < 2; i++) {
                 if(!player_not_played[players[i]]) {
                     address payable account = payable(players[i]);
                     account.transfer(reward);
@@ -90,6 +94,8 @@ contract RPS {
                     reward = 0;
                 }
             }
+            }
+            
         }
     }
 
