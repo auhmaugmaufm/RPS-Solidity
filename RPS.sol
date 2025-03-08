@@ -12,8 +12,8 @@ contract RPS {
     mapping(address => bool) public player_not_played;
     address[] public players;
     uint public numInput = 0;
-    TimeUnit public timeUnit = new TimeUnit();
-    uint public timeOut = 1 ;
+    TimeUnit private timeUnit = new TimeUnit();
+    uint private timeOut = 1 ;
 
     address[4] private playerAccept = [
         0x5B38Da6a701c568545dCfcB03FcB875f56beddC4,
@@ -22,7 +22,7 @@ contract RPS {
         0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB
     ];
 
-    function getValid () public view returns (bool) {
+    function getValid () private view returns (bool) {
         for (uint256 i = 0; i < 4; i++) {
             if(msg.sender == playerAccept[i]) {
                 return true;
@@ -78,6 +78,9 @@ contract RPS {
 
     function checkTimeOut() public {
         if(timeUnit.elapsedMinutes() == timeOut) {
+            if(players.length == 1) {
+                // 
+            }
             for (uint256 i = 0; i < 2; i++) {
                 if(!player_not_played[players[i]]) {
                     address payable account = payable(players[i]);
