@@ -110,6 +110,24 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "randomNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes1",
+						"name": "choice",
+						"type": "bytes1"
+					}
+				],
+				"name": "reveal",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "reward",
 				"outputs": [
@@ -159,11 +177,11 @@
 			]
 		},
 		"RPS.sol": {
-			"keccak256": "0x875320f97063a8e3efb3aacbf77e813656abdf73deafad404acea21535baef16",
+			"keccak256": "0x55ee95e9a834f5721487c31e6252effabdbbede90fca2f2f8a07d05ebadeb641",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://f65cdbe546772033df313f96b5c8f2b2bc6ea5a4c15deaf0abc689a837d8c0cc",
-				"dweb:/ipfs/QmYyUdbPMnZEPWnFPFyuDW2YvaFN681zVXwtWvN68QQ2aA"
+				"bzz-raw://79ee4b51e708b2b7a428f6e6b11d4566c9ac770527d682fca46b2ba185b7b07f",
+				"dweb:/ipfs/QmTJ8qbAfsNrLVPoWsF3YdBrRMv3iVpFomk3jZtqvN8MF3"
 			]
 		},
 		"TimeUnit.sol": {

@@ -52,27 +52,37 @@ contract RPS {
     function input(bytes32 choiceHash) public {
         require(numPlayer == 2);
         require(player_not_played[msg.sender]);
-        
-        uint choice = uint(choiceHash) % 5;
-        require(
-            choice == 0 || choice == 1 || choice == 2 || choice == 3 || choice == 4,
-            "Invalid choice"
-        );
-        
-        commitReveal.commit(choiceHash);
+        commitReveal.commit(commitReveal.getHash(choiceHash));
         player_choice_commit[msg.sender] = choiceHash;
-        player_choice[msg.sender] = choice;
         player_not_played[msg.sender] = false;
         numInput++;
+    }
 
+
+    function reveal(uint randomNumber, bytes1 choice) public {
+        require(numPlayer == 2);
+        require(numInput == 2);
+        
+        bytes32 randomNumberBytes32 = bytes32(randomNumber);
+        bytes32 choiceHash = keccak256(abi.encodePacked(randomNumberBytes32, choice));
+        
+        require(choiceHash == player_choice_commit[msg.sender], "Choice hash mismatch");
+        
+        commitReveal.reveal(choiceHash);
+        
+        uint revealedChoice = uint8(choice);
+        require(revealedChoice <= 4 && revealedChoice >= 0);
+        player_choice[msg.sender] = revealedChoice;
+        
         if (numInput == 2) {
             numInput = 0;
             numPlayer = 0;
-            _checkWinnerAndPay();
+            checkWinnerAndPay();
         }
     }
 
-    function _checkWinnerAndPay() private {
+
+    function checkWinnerAndPay() private {
         uint p0Choice = player_choice[players[0]];
         uint p1Choice = player_choice[players[1]];
         address payable account0 = payable(players[0]);
@@ -86,7 +96,7 @@ contract RPS {
         } else {
             account1.transfer(reward);
         }
-        
+
         reward = 0;
     }
 
