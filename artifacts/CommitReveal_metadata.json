@@ -171,11 +171,11 @@
 	},
 	"sources": {
 		"CommitReveal.sol": {
-			"keccak256": "0x5414bdffbeef37ec6ccf2838687113adef017a3564952f46c0f7f8e93c2671e3",
+			"keccak256": "0x3394f032e8b9a4a6c435bd2818820fdc0c4d29e3ee62ce932dfae64e037bbdf9",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://d3a0115515aa5551888b2927d9c0c1742ad7148e0b9cf2e516d8179def6681e0",
-				"dweb:/ipfs/QmRV6CddVL5oMzraamFfBLC2zaaMRFoXp7WQBuiFDhTx3w"
+				"bzz-raw://872c663abfde26b04a931eeb1770188395a2e869ff3ead3336950b115d079e02",
+				"dweb:/ipfs/QmTaXxqiCMSVw71pmLX1UuhbgQ5rAPRBeut3DhsRAePTUu"
 			]
 		}
 	},

@@ -20,11 +20,24 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "commitReveal",
+				"outputs": [
+					{
+						"internalType": "contract CommitReveal",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "choice",
-						"type": "uint256"
+						"internalType": "bytes32",
+						"name": "choiceHash",
+						"type": "bytes32"
 					}
 				],
 				"name": "input",
@@ -48,25 +61,6 @@
 			{
 				"inputs": [],
 				"name": "numPlayer",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "player_choice",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -157,19 +151,19 @@
 	},
 	"sources": {
 		"CommitReveal.sol": {
-			"keccak256": "0x5414bdffbeef37ec6ccf2838687113adef017a3564952f46c0f7f8e93c2671e3",
+			"keccak256": "0x3394f032e8b9a4a6c435bd2818820fdc0c4d29e3ee62ce932dfae64e037bbdf9",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://d3a0115515aa5551888b2927d9c0c1742ad7148e0b9cf2e516d8179def6681e0",
-				"dweb:/ipfs/QmRV6CddVL5oMzraamFfBLC2zaaMRFoXp7WQBuiFDhTx3w"
+				"bzz-raw://872c663abfde26b04a931eeb1770188395a2e869ff3ead3336950b115d079e02",
+				"dweb:/ipfs/QmTaXxqiCMSVw71pmLX1UuhbgQ5rAPRBeut3DhsRAePTUu"
 			]
 		},
 		"RPS.sol": {
-			"keccak256": "0x3431f7a71609c4d7dd5fa6d5e2cf009e403e6b13688f2e77e88463c9ef012cd3",
+			"keccak256": "0x875320f97063a8e3efb3aacbf77e813656abdf73deafad404acea21535baef16",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://e968b5360711f29739c03c7c0e0e758bf47b3ea8866db9d118f5544ea16d1d56",
-				"dweb:/ipfs/QmNtbrF3ygVFESiJZieKRNeBMrvuFTTyWVSPbWyfjA89ia"
+				"bzz-raw://f65cdbe546772033df313f96b5c8f2b2bc6ea5a4c15deaf0abc689a837d8c0cc",
+				"dweb:/ipfs/QmYyUdbPMnZEPWnFPFyuDW2YvaFN681zVXwtWvN68QQ2aA"
 			]
 		},
 		"TimeUnit.sol": {
