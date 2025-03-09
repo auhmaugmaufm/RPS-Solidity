@@ -20,13 +20,24 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "commitReveal",
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "randomNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "choice",
+						"type": "uint256"
+					}
+				],
+				"name": "getChoiceHash",
 				"outputs": [
 					{
-						"internalType": "contract CommitReveal",
+						"internalType": "bytes32",
 						"name": "",
-						"type": "address"
+						"type": "bytes32"
 					}
 				],
 				"stateMutability": "view",
@@ -40,7 +51,25 @@
 						"type": "bytes32"
 					}
 				],
-				"name": "input",
+				"name": "inputCommit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "randomNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "choice",
+						"type": "uint256"
+					}
+				],
+				"name": "inputReveal",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -48,6 +77,19 @@
 			{
 				"inputs": [],
 				"name": "numInput",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "numInputReveal",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -110,24 +152,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "randomNumber",
-						"type": "uint256"
-					},
-					{
-						"internalType": "bytes1",
-						"name": "choice",
-						"type": "bytes1"
-					}
-				],
-				"name": "reveal",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
 				"inputs": [],
 				"name": "reward",
 				"outputs": [
@@ -177,11 +201,11 @@
 			]
 		},
 		"RPS.sol": {
-			"keccak256": "0x55ee95e9a834f5721487c31e6252effabdbbede90fca2f2f8a07d05ebadeb641",
+			"keccak256": "0xaaa7cc3785c78a1ea7f0c051da7bd79e91d4cb10c36de716070b6b6287087243",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://79ee4b51e708b2b7a428f6e6b11d4566c9ac770527d682fca46b2ba185b7b07f",
-				"dweb:/ipfs/QmTJ8qbAfsNrLVPoWsF3YdBrRMv3iVpFomk3jZtqvN8MF3"
+				"bzz-raw://ffa111b3b6421d63cfe15eb72a0f1b9a024e514b7d3258ea5626571072b60883",
+				"dweb:/ipfs/QmScPJDZDpDC8mWwQwvBBc5GMuFmque89vJ8giX1JChwS1"
 			]
 		},
 		"TimeUnit.sol": {

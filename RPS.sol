@@ -8,6 +8,7 @@ import "./TimeUnit.sol";
 contract RPS {
     uint public numPlayer = 0;
     uint public reward = 0;
+    uint public numInputReveal = 0;
     mapping(address => bytes32) private player_choice_commit;
     mapping(address => uint) private player_choice;
     mapping(address => bool) public player_not_played;
@@ -16,7 +17,7 @@ contract RPS {
 
     TimeUnit private timeUnit = new TimeUnit();
     uint private timeOut = 1;
-    CommitReveal public commitReveal = new CommitReveal();
+    CommitReveal private commitReveal = new CommitReveal();
 
     address[4] private playerAccept = [
         0x5B38Da6a701c568545dCfcB03FcB875f56beddC4,
@@ -49,32 +50,36 @@ contract RPS {
         }
     }
 
-    function input(bytes32 choiceHash) public {
+    function getChoiceHash(uint randomNumber, uint choice) public view returns (bytes32) {
+        bytes32 Hash = keccak256(abi.encodePacked(randomNumber, choice));
+        bytes32 result = commitReveal.getHash(Hash);
+        return result;
+    }
+
+    function inputCommit(bytes32 choiceHash) public {
         require(numPlayer == 2);
         require(player_not_played[msg.sender]);
-        commitReveal.commit(commitReveal.getHash(choiceHash));
+        commitReveal.commit(choiceHash);
         player_choice_commit[msg.sender] = choiceHash;
         player_not_played[msg.sender] = false;
         numInput++;
     }
 
 
-    function reveal(uint randomNumber, bytes1 choice) public {
-        require(numPlayer == 2);
+    function inputReveal(uint randomNumber, uint choice) public {
         require(numInput == 2);
         
-        bytes32 randomNumberBytes32 = bytes32(randomNumber);
-        bytes32 choiceHash = keccak256(abi.encodePacked(randomNumberBytes32, choice));
-        
-        require(choiceHash == player_choice_commit[msg.sender], "Choice hash mismatch");
+        bytes32 choiceHash = keccak256(abi.encodePacked(randomNumber, choice));
         
         commitReveal.reveal(choiceHash);
         
         uint revealedChoice = uint8(choice);
         require(revealedChoice <= 4 && revealedChoice >= 0);
         player_choice[msg.sender] = revealedChoice;
-        
-        if (numInput == 2) {
+        numInputReveal++;
+
+        if (numInputReveal == 2) {
+            numInputReveal = 0;
             numInput = 0;
             numPlayer = 0;
             checkWinnerAndPay();
