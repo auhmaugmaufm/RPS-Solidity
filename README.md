@@ -8,7 +8,7 @@
     </ul>
   </li>
 </ul>
-![image](https://github.com/user-attachments/assets/d921a4d5-4c1c-4d8e-88a1-22ed49f8b241)
+<img src="https://github.com/user-attachments/assets/d921a4d5-4c1c-4d8e-88a1-22ed49f8b241" width="400">
 
 
 <h2>การซ่อน choice และ commit</h2>
@@ -17,7 +17,7 @@
   <li>ฟังก์ชัน inputCommit(): ผู้เล่นจะส่ง hash ที่สร้างขึ้นไปยังฟังก์ชันนี้เพื่อ "commit" ตัวเลือกของตน โดย hash นี้จะถูกเก็บไว้ใน player_choice_commit</li>
   <li>การใช้ hash ทำให้ตัวเลือกของผู้เล่นถูกซ่อนไว้จนกว่าจะส่ง commit กันทั้งสองคน หลังจากนั้นจะทำการเรียกใช้ inputReveal และจะเปิดเผยคำตอบที่ผู้ใช้เลือก</li>
 </ul>
-![image](https://github.com/user-attachments/assets/d7f2f3bd-0fb7-43dd-af76-facd32bd08d4)
+<img src="https://github.com/user-attachments/assets/d7f2f3bd-0fb7-43dd-af76-facd32bd08d4" width="400">
 
 
 <h2>การจัดการกับความล่าช้าของผู้เล่น</h2>
@@ -33,9 +33,9 @@
   <li>การคำนวณผู้ชนะ: มีการใช้เงื่อนไข if-else เพื่อตรวจสอบว่าใครเป็นผู้ชนะตามกฎของเกม RPS</li>
   <li>การจ่ายรางวัล: ผู้ชนะจะได้รับเงินรางวัลทั้งหมด หรือแบ่งกันหากเสมอกัน</li>
 </ul>
-![image](https://github.com/user-attachments/assets/9da44a49-1b0b-4da3-83e9-9a65fa3a2bde)
+ <img src="https://github.com/user-attachments/assets/9da44a49-1b0b-4da3-83e9-9a65fa3a2bde" width="400">
 
-
+<hr>
 <h3>Rules</h3>
 <table border="1">
   <tr>
