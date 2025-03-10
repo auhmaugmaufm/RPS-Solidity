@@ -201,11 +201,11 @@
 			]
 		},
 		"RPS.sol": {
-			"keccak256": "0xb8d4d11707ce1a63be843a026c62752b6f1bf4a2ed997945001fd224286d30e6",
+			"keccak256": "0xdb3c93a9ece42a9c8acc8d7b19e71eebb0ce3365cccfd1926a30cc6d7d22b7a5",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://00e248b298841ae0d7d1ee23ad67a7a7fad1957a37aa93866792b106be11e3c3",
-				"dweb:/ipfs/QmXWsaEeDbuWtupaiaa6pFzmPKaUapEisd3W7hj8zXTfuW"
+				"bzz-raw://ea369529b0c1258625b104a902403506b64c04eada50d39281615fd011daed58",
+				"dweb:/ipfs/QmU7FHhegcGmigSneRx8DcmmBsAfjQaqxAfDa1b5XCkebP"
 			]
 		},
 		"TimeUnit.sol": {

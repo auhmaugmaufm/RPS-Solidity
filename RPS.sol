@@ -16,7 +16,7 @@ contract RPS {
     uint public numInput = 0;
 
     TimeUnit private timeUnit = new TimeUnit();
-    uint private timeOut = 1;
+    uint private timeOut = 5;
     mapping(address => CommitReveal) private commitReveals;
 
     address[4] private playerAccept = [
