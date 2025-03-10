@@ -17,7 +17,7 @@ contract RPS {
 
     TimeUnit private timeUnit = new TimeUnit();
     uint private timeOut = 1;
-    CommitReveal private commitReveal = new CommitReveal();
+    mapping(address => CommitReveal) private commitReveals;
 
     address[4] private playerAccept = [
         0x5B38Da6a701c568545dCfcB03FcB875f56beddC4,
@@ -39,39 +39,35 @@ contract RPS {
         require(numPlayer < 2);
         require(getValid());
         require(msg.value == 1 ether);
-
         reward += msg.value;
         player_not_played[msg.sender] = true;
         players.push(msg.sender);
         numPlayer++;
-
+        commitReveals[msg.sender] = new CommitReveal();
         if (numPlayer == 1) {
             timeUnit.setStartTime();
         }
     }
 
     function getChoiceHash(uint randomNumber, uint choice) public view returns (bytes32) {
-        bytes32 Hash = keccak256(abi.encodePacked(randomNumber, choice));
-        bytes32 result = commitReveal.getHash(Hash);
+        bytes32 Hash = keccak256(abi.encode(randomNumber, choice));
+        bytes32 result = commitReveals[msg.sender].getHash(Hash);
         return result;
     }
 
-    function inputCommit(bytes32 choiceHash) public {
+    function inputCommit(bytes32 choiceHash) public payable {
         require(numPlayer == 2);
         require(player_not_played[msg.sender]);
-        commitReveal.commit(choiceHash);
+        commitReveals[msg.sender].commit(choiceHash);
         player_choice_commit[msg.sender] = choiceHash;
         player_not_played[msg.sender] = false;
         numInput++;
     }
 
-
-    function inputReveal(uint randomNumber, uint choice) public {
-        require(numInput == 2);
-        
-        bytes32 choiceHash = keccak256(abi.encodePacked(randomNumber, choice));
-        
-        commitReveal.reveal(choiceHash);
+    function inputReveal(uint randomNumber, uint choice) public payable {
+        require(numInput == 2);     
+        bytes32 choiceHash = keccak256(abi.encode(randomNumber, choice));
+        commitReveals[msg.sender].reveal(choiceHash);
         
         uint revealedChoice = uint8(choice);
         require(revealedChoice <= 4 && revealedChoice >= 0);
@@ -79,15 +75,11 @@ contract RPS {
         numInputReveal++;
 
         if (numInputReveal == 2) {
-            numInputReveal = 0;
-            numInput = 0;
-            numPlayer = 0;
             checkWinnerAndPay();
         }
     }
 
-
-    function checkWinnerAndPay() private {
+    function checkWinnerAndPay() private  {
         uint p0Choice = player_choice[players[0]];
         uint p1Choice = player_choice[players[1]];
         address payable account0 = payable(players[0]);
@@ -101,15 +93,15 @@ contract RPS {
         } else {
             account1.transfer(reward);
         }
-
-        reward = 0;
+        resetGame();
     }
 
     function resetGame() private {
-        delete players;
         numInput = 0;
         numPlayer = 0;
         reward = 0;
+        numInputReveal = 0;
+        delete players;
     }
 
     function checkTimeOut() public {

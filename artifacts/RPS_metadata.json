@@ -53,7 +53,7 @@
 				],
 				"name": "inputCommit",
 				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
@@ -71,7 +71,7 @@
 				],
 				"name": "inputReveal",
 				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
@@ -201,11 +201,11 @@
 			]
 		},
 		"RPS.sol": {
-			"keccak256": "0xaaa7cc3785c78a1ea7f0c051da7bd79e91d4cb10c36de716070b6b6287087243",
+			"keccak256": "0xb8d4d11707ce1a63be843a026c62752b6f1bf4a2ed997945001fd224286d30e6",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://ffa111b3b6421d63cfe15eb72a0f1b9a024e514b7d3258ea5626571072b60883",
-				"dweb:/ipfs/QmScPJDZDpDC8mWwQwvBBc5GMuFmque89vJ8giX1JChwS1"
+				"bzz-raw://00e248b298841ae0d7d1ee23ad67a7a7fad1957a37aa93866792b106be11e3c3",
+				"dweb:/ipfs/QmXWsaEeDbuWtupaiaa6pFzmPKaUapEisd3W7hj8zXTfuW"
 			]
 		},
 		"TimeUnit.sol": {
